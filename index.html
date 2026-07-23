@@ -1,163 +1,571 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Carlotta Cascino</title>
 
+
 <style>
 
-*{
-    margin:4;
+* {
+    margin: 0;
     padding: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
+
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #222;
+    line-height: 1.6;
+    padding-top: 75px;
+}
+
+
+/* ================= NAVBAR ================= */
+
 
 header {
-    background: #5B8C6F; /* deep forest green */
-    color:  #F0FFF4;      /* soft light green */
-    font-family: 'Helvetica', serif;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    background: #5B8C6F;
+
+    z-index: 1000;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+
+}
+
+
+.navbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 3rem;
+
+}
+
+
+
+.logo {
+
+    color: #F0FFF4;
+
+    text-decoration: none;
+
     font-size: 1.4rem;
-    padding: 0.5rem 0.9rem;
+
+    font-weight: bold;
+
 }
 
 
-h3 {
-    color: #F0FFF4; /* very light green */
-    font-family: 'Helvetica', serif;
-    font-size: 1.0rem;
+
+.nav-links {
+
+    display: flex;
+
+    list-style: none;
+
+    gap: 2rem;
+
 }
-    
+
+
+
+.nav-links a {
+
+    color: #99C68E;
+
+    text-decoration: none;
+
+    font-size: 1rem;
+
+    transition: 0.2s;
+
+}
+
+
+
+.nav-links a:hover {
+
+    color: #F0FFF4;
+
+}
+
+
+
+/* hamburger */
+
+.menu-toggle {
+
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    color: #F0FFF4;
+
+    font-size: 1.8rem;
+
+    cursor: pointer;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.menu-toggle {
+
+    display:block;
+
+}
+
+
+.nav-links {
+
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    width:100%;
+
+    background:#5B8C6F;
+
+    flex-direction:column;
+
+    padding:1.5rem 2rem;
+
+}
+
+
+.nav-links.active {
+
+    display:flex;
+
+}
+
+
+}
+
+
+
+/* ================= HERO ================= */
+
+
+.hero {
+
+    background:#5B8C6F;
+
+    color:#F0FFF4;
+
+    padding:3rem 2rem;
+
+    text-align:center;
+
+}
+
+
+.hero h1 {
+
+    font-size:2.5rem;
+
+    margin-bottom:0.5rem;
+
+}
+
+
+.hero h3 {
+
+    font-size:1.2rem;
+
+    font-weight:normal;
+
+    color:#D8F3DC;
+
+}
+
+
+
+/* ================= CONTENT ================= */
+
+
+.container {
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:2rem;
+
+}
+
+
+
 h2 {
-    color: #387C44; /* very light green */
-    font-family: 'Helvetica', serif;
-    font-size: 1.3rem;
-    margin-bottom: 0.4rem;
+
+    color:#387C44;
+
+    font-size:1.5rem;
+
+    margin-top:2rem;
+
+    margin-bottom:0.8rem;
+
 }
 
-p {
-    color: #000; /* muted green */
-    font-family:'Helvetica', serif ;
-    font-size: 1.1rem;
+
+
+p, li {
+
+    font-size:1.05rem;
+
 }
 
-    
+
+
+ul {
+
+    padding-left:1.5rem;
+
+}
+
+
+
 li {
-    color: #000; /* muted green */
-    font-family:'Helvetica', serif ;
-    font-size: 1.1rem;
+
+    margin-bottom:1rem;
+
 }
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer {
+
+    text-align:center;
+
+    padding:2rem;
+
+    color:#666;
+
+    font-size:0.9rem;
+
+}
+
 
 </style>
 
+
 </head>
+
+
 
 <body>
 
+
+
+<!-- NAVBAR -->
+
+
 <header>
 
-<h1>Carlotta Cascino</h1>
+<nav class="navbar">
 
-<h3>Graduate Student in Cognitive Science & Linguistics</h3>
+
+<a class="logo" href="#">
+Carlotta Cascino
+</a>
+
+
+
+<button class="menu-toggle" onclick="toggleMenu()">
+☰
+</button>
+
+
+
+<ul class="nav-links" id="navLinks">
+
+<li>
+<a href="#about">About</a>
+</li>
+
+
+<li>
+<a href="#research">Research</a>
+</li>
+
+
+<li>
+<a href="#outreach">Outreach</a>
+</li>
+
+
+<li>
+<a href="#contact">Contact</a>
+</li>
+
+
+</ul>
+
+
+
+</nav>
 
 </header>
 
-<div class="container">
 
 
-<h2>About Me</h2>
-
-<div class="projects">
-
-<div class="card">
-<p>I grew up in Italy, where I earned a BA in Philosophy. 
-    I then pursued a Master's degree in Cognitive Science and Linguistics at the École Normale Supérieure in Paris, completing it in 2026. 
-    My research there explored different facets of communicative efficiency, with a particular focus on the roles of utterance length and vagueness. 
-    In 2025, I also worked as a research collaborator at Princeton University.<p>
 
 
-</div>
-
-<div class="container">
+<!-- HERO -->
 
 
-<h2>Projects</h2>
+<section class="hero">
 
-<div class="projects">
 
-<div class="card">
-    <ul>
-  <li>
-    <strong>Cascino C. M.</strong>, 
-    A is for <i>a</i>-generics: Predicate Collectivity in Generic Constructions,
-    <em>Construction Grammars &amp; NLP Workshop, co-located with the 16th International Conference on Computational Semantics, Düsseldorf</em>,
-    September 2025 (Proceedings forthcoming).
-  </li>
+<h1>
+Carlotta Cascino
+</h1>
 
-  <li>
-    <strong>Cascino C. M.</strong>, 
-    More than just &ldquo;Good&rdquo;: an RSA Model of the Politeness of Costly Intensifiers in Compliments,
-    <em>21st Conference of the Italian Association of Cognitive Sciences, Lucca</em>,
-    September 2025.
-  </li>
 
-  <li>
-    <strong>Cascino C. M.</strong>, 
-    From Ambiguity to Underspecification: Rethinking the Semantics of Humor,
-    <em>16th Conference of the Italian Society for Analytic Philosophy. Minds and Worlds, Turin</em>,
-    August 2025.
-  </li>
+<h3>
+Graduate Student in Cognitive Science & Linguistics
+</h3>
 
-  <li>
-    Spector B., <strong>Cascino C. M.</strong>, Enguehard E.,
-    New evidence for a Bayesian approach to gradable adjectives,
-    <em>Semantics and Linguistic Theory Conference, Cambridge (MA)</em>,
-    May 2025.
-  </li>
+
+</section>
+
+
+
+
+
+
+<main class="container">
+
+
+
+<!-- ABOUT -->
+
+
+<section id="about">
+
+
+<h2>
+About Me
+</h2>
+
+
+<p>
+
+I grew up in Italy, where I earned a BA in Philosophy. 
+I then pursued a Master's degree in Cognitive Science and Linguistics at the École Normale Supérieure in Paris, completing it in 2026. 
+My research there explored different facets of communicative efficiency, with a particular focus on the roles of utterance length and vagueness. 
+In 2025, I also worked as a research collaborator at Princeton University.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+<!-- RESEARCH -->
+
+
+<section id="research">
+
+
+<h2>
+Research & Publications
+</h2>
+
+
+
+<ul>
+
+
+<li>
+
+<strong>Cascino C. M.</strong>, 
+A is for <i>a</i>-generics: Predicate Collectivity in Generic Constructions,
+<em>Construction Grammars &amp; NLP Workshop, co-located with the 16th International Conference on Computational Semantics, Düsseldorf</em>,
+September 2025 (Proceedings forthcoming).
+
+</li>
+
+
+
+<li>
+
+<strong>Cascino C. M.</strong>, 
+More than just &ldquo;Good&rdquo;: an RSA Model of the Politeness of Costly Intensifiers in Compliments,
+<em>21st Conference of the Italian Association of Cognitive Sciences, Lucca</em>,
+September 2025.
+
+</li>
+
+
+
+<li>
+
+<strong>Cascino C. M.</strong>, 
+From Ambiguity to Underspecification: Rethinking the Semantics of Humor,
+<em>16th Conference of the Italian Society for Analytic Philosophy. Minds and Worlds, Turin</em>,
+August 2025.
+
+</li>
+
+
+
+<li>
+
+Spector B., <strong>Cascino C. M.</strong>, Enguehard E.,
+New evidence for a Bayesian approach to gradable adjectives,
+<em>Semantics and Linguistic Theory Conference, Cambridge (MA)</em>,
+May 2025.
+
+</li>
+
+
 </ul>
 
-</div>
 
-</div>
+</section>
 
-</div>
-    
-<h2>Science Outreach (in Italian)</h2>
-    <div class="projects">
 
-<div class="card">
-    <ul>
-  <li>
-<strong>Cascino, C. M.</strong>, Modellizzare la (in)comprensione linguistica. 
-Dalla Teoria dell’Informazione alla Teoria della Pertinenza,  <em>Il Chiasmo (Treccani Encyclopedia)</em>, 2023.
-  </li>
 
-  <li>
-<strong>Cascino, C. M.</strong>, De Domenico, A., Menti naturali e menti artificiali. 
-      Il Symbol Grounding Problem e le sue implicazioni per l’AI, <em>Il Chiasmo (Treccani Encyclopedia)</em>, 2021.
 
-  </li>
+
+
+
+<!-- OUTREACH -->
+
+
+<section id="outreach">
+
+
+<h2>
+Science Outreach (in Italian)
+</h2>
+
+
+
+<ul>
+
+
+<li>
+
+<strong>Cascino, C. M.</strong>,
+Modellizzare la (in)comprensione linguistica. 
+Dalla Teoria dell’Informazione alla Teoria della Pertinenza,
+<em>Il Chiasmo (Treccani Encyclopedia)</em>, 2023.
+
+</li>
+
+
+
+<li>
+
+<strong>Cascino, C. M.</strong>, De Domenico, A.,
+Menti naturali e menti artificiali. 
+Il Symbol Grounding Problem e le sue implicazioni per l’AI,
+<em>Il Chiasmo (Treccani Encyclopedia)</em>, 2021.
+
+</li>
+
+
 
 </ul>
 
-</div>
 
-</div>
-
-</div>
-    
-
-<h2>Contacts</h2>
-<p>cascino <strong> dot </strong> carlotta <strong> at </strong> gmail <strong> dot </strong> com</p>
+</section>
 
 
-    
+
+
+
+
+
+
+<!-- CONTACT -->
+
+
+<section id="contact">
+
+
+<h2>
+Contact
+</h2>
+
+
+<p>
+
+cascino <strong>dot</strong> carlotta 
+<strong>at</strong> gmail 
+<strong>dot</strong> com
+
+</p>
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
 <footer>
-    
+
 © 2026 Carlotta Cascino
 
 </footer>
 
+
+
+
+
+
+<script>
+
+function toggleMenu(){
+
+document
+.getElementById("navLinks")
+.classList.toggle("active");
+
+}
+
+</script>
+
+
+
 </body>
+
 </html>
